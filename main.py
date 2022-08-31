@@ -35,8 +35,18 @@ def transportation_picker():
         random_transportation = random.choice(modes_of_transportation)
         choice = input(f"How does {random_transportation} sound for our method of transportation? Please input Y or N: ")
         print("")
-    print("Excellent choice!")
-    print("")
+    if random_transportation == "Watching a movie":
+        print("I think you chose that one for me ;)")
+        print("")
+    elif random_transportation == "Reading a book":
+        print("Ah! Your favorite.")
+        print("")
+    elif random_transportation == "Storytime":
+        print("We will be enthralled and moved")
+        print("")
+    elif random_transportation == "Our imagination":
+        print("There are no two better at it than you and me.")
+        print("")
     day_trip_dictionary["transportation"] = random_transportation
 
 def restaurant_picker():
@@ -45,7 +55,15 @@ def restaurant_picker():
         random_restaurant = random.choice(restaurants)
         choice = input(f"How does {random_restaurant} sound for our meal? Please input Y or N: ")
         print("")
-    print("Excellent choice!")
+    if random_restaurant == "A feast for royalty":
+        print("Now that sounds fancy! I hope there is a blue genie as our waiter.")
+    elif random_restaurant == "Sushi":
+        print("YAY! But lets be sure not to eat any of our new friends")
+    elif random_restaurant == "Dinner made by teapots":
+        print("I just want to see how that works logistically!")
+    elif random_restaurant == "BBQ":
+        print("That will feel nostalgic!")
+        print("")
     print("")
     day_trip_dictionary["restaurant"] = random_restaurant
 
@@ -55,22 +73,32 @@ def entertainment_picker():
         random_entertainment = random.choice(entertainment)
         choice = input(f"How does {random_entertainment} sound for our entertainment? Please input Y or N: ")
         print("")
-    print("Excellent choice!")
+    if random_entertainment == "Go on a magic carpet ride":
+        print("I can show you the wooooooooooorld")
+    elif random_entertainment == "Go on a seahorse ride":
+        print("Look at this stuff, isn't it neat?")
+    elif random_entertainment == "Dance in the ballroom":
+        print("beauty and the beaaaaaaaaaast")
+    elif random_entertainment == "Sail with Maui":
+        print("What can I say except your welcome?!")
     print("")
     day_trip_dictionary["entertainment"] = random_entertainment
 
 def run_day_trip_generator():
-    destination_picker()
-    transportation_picker()
-    restaurant_picker()
-    entertainment_picker()
-    print("Excellent! We will be traveling to " + day_trip_dictionary["destination"])
+    choice = "N"
+    while choice != "Y":
+        destination_picker()
+        transportation_picker()
+        restaurant_picker()
+        entertainment_picker()
+        print(f'Excellent! We will be traveling to {day_trip_dictionary["destination"]} and we will travel by way of {day_trip_dictionary["transportation"]}.')
+        print("")
+        print(f'For our meal we will have {day_trip_dictionary["restaurant"]}, and for fun we will {day_trip_dictionary["entertainment"]}.')
+        print("")
+        choice = input("We can generate a new trip if you like. Do you want to keep this one? Please input Y or N: ")
+        print("")
     print("")
-    print("We will travel by way of " + day_trip_dictionary["transportation"])
-    print("")
-    print("For our meal we will have " + day_trip_dictionary["restaurant"])
-    print("")
-    print("And for fun we will " + day_trip_dictionary["entertainment"])
+    print("We are going to have such a wonderful time. Thank you for confirming our date. I look forward to it very much.")
     print("")
 
 run_day_trip_generator()
